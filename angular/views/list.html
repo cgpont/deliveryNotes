@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="page-header">
+	  <h1>Hasbro Albaranes</h1>
+	</div>
+
+	<div class="panel panel-default form-horizontal" >
+		<div class="panel-heading">
+			<h3 class="panel-title">Listado de Albaranes</h3>
+		</div>
+		<div class="panel-body">
+		<p>
+			<button class="btn button btn-default" ng-click="newDeliveryNote()"><span class="glyphicon glyphicon-plus"></span> New</button>
+		</p>
+		<div>
+			<table class="table table-condensed table-bordered table-striped">
+	      <thead>
+	          <tr>
+	           <th>Año</th>
+	           <th>Albarán</th>
+	           <th>Cliente</th>
+	          </tr>
+	      </thead>
+				<tbody>
+						<tr ng-repeat="key in keylist" ng-click="goToDeliveryNote()">
+							<td>{{deliveryNotes[key]['anyo']}}</td>
+							<td>{{deliveryNotes[key]['albaran']}}</td>
+							<td>{{deliveryNotes[key]['cliente']}}</td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
