@@ -2,8 +2,8 @@ component extends="framework.one" {
 
 	this.name = "deliveryNotesApp";
 	this.datasource = "hasbro_albaranes";
-    this.sessionManagement = true;
-    this.sessionTimeout = createTimeSpan(0,2,0,0);
+  this.sessionManagement = true;
+  this.sessionTimeout = createTimeSpan(0,2,0,0);
 
 	variables.framework = {
     unhandledExtensions = "cfc,map,css,js,html",

@@ -12,8 +12,12 @@ component accessors = true {
 	public void function get( struct rc ) {
 
 		var deliveryNoteBean = deliveryNoteService.get(arguments.rc.id, arguments.rc.year);
+		var deliveryNoteArticles = deliveryNoteService.getArticlesFromDeliveryNote(arguments.rc.id, arguments.rc.year);
+		var arrDeliveryNote = ArrayNew(1);
+		arrDeliveryNote[1] = deliveryNoteBean;
+		arrDeliveryNote[2] = deliveryNoteArticles;
 
-		framework.renderdata("JSON" , deliveryNoteBean);
+		framework.renderdata("JSON" , arrDeliveryNote);
 
 	}
 

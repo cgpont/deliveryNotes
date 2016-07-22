@@ -84,7 +84,7 @@ component  {
     * @hint		Gets a list of delivery notes.
     */
 	public any function list( ) {
-		var arrDeliveryNotes = queryToArray(deliveryNotes);
+		var arrDeliveryNotes = queryToArray(deliveryNotes);		
 		return arrDeliveryNotes;
 	}
 
@@ -118,5 +118,25 @@ component  {
 	public any function delete(number albaran, number anyo) {
 		var ret = deleteDeliveryNote(albaran, anyo);
 	}
+
+	/**
+	* @hint		Gets all the delivery note's articles from the database.
+	*/
+	private Query function getArticles(required number id, required number year){
+	storedproc procedure="getArticles" {
+		procparam cfSqlType="cf_sql_integer" type="in" value=id;
+		procparam cfSqlType="cf_sql_integer" type="in" value=year;
+		procresult name="local.articlesSp";
+	}
+	return local.articlesSp;
+	}
+
+	/**
+	* @hint		Gets all the articles from a  delivery note.
+	*/
+public any function getArticlesFromDeliveryNote(number id, number year) {
+	var arrDnArticles = queryToArray(getArticles(trim(arguments.id), trim(arguments.year)));
+	return arrDnArticles;
+}
 
 }

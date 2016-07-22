@@ -4,7 +4,9 @@
 
   if ($location.path() != '/deliverynote/new'){
   	$http.get( 'index.cfm/' + $location.path() ).success( function( data ) {
-  		$scope.deliveryNote = data[0];
+  		$scope.deliveryNote = data[0][0];
+      $scope.deliveryNoteArticles = data[1];
+      $scope.keylist = Object.keys($scope.deliveryNoteArticles).sort(function(a, b){return b-a});
   	} );
   }
 

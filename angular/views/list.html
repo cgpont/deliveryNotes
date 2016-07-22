@@ -18,6 +18,17 @@
 	           <th>Año</th>
 	           <th>Albarán</th>
 	           <th>Cliente</th>
+						 <th>Agencia</th>
+						 <th>Departamento</th>
+						 <th>F. Albarán</th>
+						 <th>F. Salida</th>
+						 <th>Bultos</th>
+						 <th>Pallets</th>
+						 <th>A/Atención</th>
+						 <th>Responsable</th>
+						 <th>Núm. Pedido</th>
+						 <th>Estado</th>
+						 <th>F. Recepción</th>
 	          </tr>
 	      </thead>
 				<tbody>
@@ -25,6 +36,17 @@
 							<td>{{deliveryNotes[key]['anyo']}}</td>
 							<td>{{deliveryNotes[key]['albaran']}}</td>
 							<td>{{deliveryNotes[key]['cliente']}}</td>
+							<td>{{deliveryNotes[key]['agencia']}}</td>
+							<td>{{deliveryNotes[key]['departamento']}}</td>
+							<td>{{deliveryNotes[key]['fechaalbaran'] | parseDate | date:'dd/MM/yyyy'}}</td>
+							<td>{{deliveryNotes[key]['fechasalida'] | parseDate | date:'dd/MM/yyyy'}}</td>
+							<td>{{deliveryNotes[key]['bultos']}}</td>
+							<td>{{deliveryNotes[key]['pallets']}}</td>
+							<td>{{deliveryNotes[key]['aatencion']}}</td>
+							<td>{{deliveryNotes[key]['responsable']}}</td>
+							<td>{{deliveryNotes[key]['numpedido']}}</td>
+							<td>{{deliveryNotes[key]['estado']}}</td>
+							<td>{{deliveryNotes[key]['fecharecepcion'] | parseDate | date:'dd/MM/yyyy'}}</td>
 						</tr>
 				</tbody>
 			</table>
