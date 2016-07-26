@@ -49,11 +49,28 @@ component  {
     /**
     * @hint		Updates a delivery note into the database.
     */
-    private number function updateDeliveryNote(required struct deliveryNote){
+    private any function updateDeliveryNote(required struct deliveryNote){
 		storedproc procedure="updateDeliveryNote" {
 			procparam cfSqlType="cf_sql_integer" type="in" value=trim(arguments.deliveryNote.albaran);
-			procparam cfSqlType="cf_sql_integer" type="in" value=trim(arguments.deliveryNote.anyo);
+			procparam cfSqlType="cf_sql_smallint" type="in" value=trim(arguments.deliveryNote.anyo);
 			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.cliente);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.direccion);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.cp);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.poblacion);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.provincia);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.agencia);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.departamento);
+			procparam cfSqlType="cf_sql_date" type="in" value=trim(arguments.deliveryNote.fechaAlbaran);
+			procparam cfSqlType="cf_sql_date" type="in" value=trim(arguments.deliveryNote.fechaSalida);
+			procparam cfSqlType="cf_sql_smallint" type="in" value=trim(arguments.deliveryNote.bultos);
+			procparam cfSqlType="cf_sql_smallint" type="in" value=trim(arguments.deliveryNote.pallets);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.aatencion);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.responsable);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.numPedido);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.observaciones);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.mercancia);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.estado);
+			procparam cfSqlType="cf_sql_date" type="in" value=trim(arguments.deliveryNote.fechaRecepcion);
 		}
 		return arguments.deliveryNote;
     }
@@ -64,8 +81,25 @@ component  {
     private number function insertDeliveryNote(required struct deliveryNote){
 		storedproc procedure="insertDeliveryNote" {
 			procparam cfSqlType="cf_sql_integer" type="in" value=trim(arguments.deliveryNote.albaran);
-			procparam cfSqlType="cf_sql_integer" type="in" value=trim(arguments.deliveryNote.anyo);
+			procparam cfSqlType="cf_sql_smallint" type="in" value=trim(arguments.deliveryNote.anyo);
 			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.cliente);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.direccion);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.cp);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.poblacion);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.provincia);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.agencia);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.departamento);
+			procparam cfSqlType="cf_sql_date" type="in" value=trim(arguments.deliveryNote.fechaAlbaran);
+			procparam cfSqlType="cf_sql_date" type="in" value=trim(arguments.deliveryNote.fechaSalida);
+			procparam cfSqlType="cf_sql_smallint" type="in" value=trim(arguments.deliveryNote.bultos);
+			procparam cfSqlType="cf_sql_smallint" type="in" value=trim(arguments.deliveryNote.pallets);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.aatencion);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.responsable);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.numPedido);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.observaciones);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.mercancia);
+			procparam cfSqlType="cf_sql_varchar" type="in" value=trim(arguments.deliveryNote.estado);
+			procparam cfSqlType="cf_sql_date" type="in" value=trim(arguments.deliveryNote.fechaRecepcion);
 		}
 		return arguments.deliveryNote;
     }
@@ -84,7 +118,7 @@ component  {
     * @hint		Gets a list of delivery notes.
     */
 	public any function list( ) {
-		var arrDeliveryNotes = queryToArray(deliveryNotes);		
+		var arrDeliveryNotes = queryToArray(deliveryNotes);
 		return arrDeliveryNotes;
 	}
 

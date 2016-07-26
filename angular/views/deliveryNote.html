@@ -9,10 +9,10 @@
 		</div>
 		<div class="panel-body">
 		<p>
-			<back-btn back="Back" icon="glyphicon-arrow-left"></back-btn>
+			<back-btn back="Volver" icon="glyphicon-arrow-left"></back-btn>
 		</p>
 		<div>
-				<form name="deliveryNoteFrm" class="form-horizontal" action="" method="post">
+				<form  id="deliveryNoteFrm" name="deliveryNoteFrm" class="form-horizontal" action="" method="post">
 					<div class="col-lg-12">
 			    <div class="well bs-component">
 						<fieldset>
@@ -20,61 +20,61 @@
                  <div class="form-group">
 									 <label for="albaran" class="col-lg-3 control-label">Albarán</label>
                    <div class="col-lg-8">
-                      <input type="text" class="form-control" id="albaran" name="albaran" value="{{deliveryNote['albaran']}}">
+                      <input type="text" class="form-control" ng-model="deliveryNote['albaran']">
                    </div>
 								</div>
 								<div class="form-group">
 									<label for="anyo" class="col-lg-3 control-label">Año</label>
 									<div class="col-lg-8">
-										 <input type="text" class="form-control" id="anyo" name="anyo" value="{{deliveryNote['anyo']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['anyo']">
 									</div>
 							 </div>
 							 <div class="form-group">
 								 <label for="cliente" class="col-lg-3 control-label">Cliente</label>
 								 <div class="col-lg-8">
-										<input type="text" class="form-control" id="cliente" name="cliente" value="{{deliveryNote['cliente']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['cliente']">
 								 </div>
 							</div>
 							<div class="form-group">
 								<label for="direccion" class="col-lg-3 control-label">Dirección</label>
 								<div class="col-lg-8">
-									 <input type="text" class="form-control" id="direccion" name="direccion" value="{{deliveryNote['direccion']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['direccion']">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="cp" class="col-lg-3 control-label">CP</label>
 								<div class="col-lg-8">
-									 <input type="text" class="form-control" id="cp" name="cp" value="{{deliveryNote['cp']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['cp']">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="poblacion" class="col-lg-3 control-label">Población</label>
 								<div class="col-lg-8">
-									 <input type="text" class="form-control" id="poblacion" name="poblacion" value="{{deliveryNote['poblacion']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['poblacion']">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="provincia" class="col-lg-3 control-label">Provincia</label>
 								<div class="col-lg-8">
-									 <input type="text" class="form-control" id="provincia" name="provincia" value="{{deliveryNote['provincia']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['provincia']">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="agencia" class="col-lg-3 control-label">Agencia</label>
 								<div class="col-lg-8">
-									 <input type="text" class="form-control" id="agencia" name="agencia" value="{{deliveryNote['agencia']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['agencia']">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="departamento" class="col-lg-3 control-label">Departamento</label>
 								<div class="col-lg-8">
-									 <input type="text" class="form-control" id="departamento" name="departamento" value="{{deliveryNote['departamento']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['departamento']">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="observaciones" class="col-lg-3 control-label">Observaciones</label>
 								<div class="col-lg-8">
-									 <textarea class="form-control" id="observaciones" name="observaciones">{{deliveryNote['observaciones']}}</textarea>
+										 <textarea class="form-control" ng-model="deliveryNote['observaciones']"></textarea>
 								</div>
 							</div>
             </div>
@@ -82,63 +82,66 @@
 							 <div class="form-group">
 								 <label for="fechaalbaran" class="col-lg-3 control-label">Fecha Albarán</label>
 								 <div class="col-lg-8">
-										<input type="text" class="form-control" id="fechaalbaran" name="fechaalbaran" value="{{deliveryNote['fechaalbaran'] | parseDate | date:'dd/MM/yyyy'}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['fechaalbaran']" dateformat>
 								 </div>
 							 </div>
 							 <div class="form-group">
 								 <label for="fechasalida" class="col-lg-3 control-label">Fecha Salida</label>
 								 <div class="col-lg-8">
-										<input type="text" class="form-control" id="fechasalida" name="fechasalida" value="{{deliveryNote['fechasalida'] | parseDate | date:'dd/MM/yyyy'}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['fechasalida']" dateformat>
 								 </div>
 							 </div>
 							 <div class="form-group">
 								 <label for="bultos" class="col-lg-3 control-label">Bultos</label>
 								 <div class="col-lg-8">
-										<input type="text" class="form-control" id="bultos" name="bultos" value="{{deliveryNote['bultos']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['bultos']">
 								 </div>
 							 </div>
 							 <div class="form-group">
 								 <label for="pallets" class="col-lg-3 control-label">Pallets</label>
 								 <div class="col-lg-8">
-										<input type="text" class="form-control" id="pallets" name="pallets" value="{{deliveryNote['pallets']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['pallets']">
 								 </div>
 							 </div>
 							 <div class="form-group">
 								 <label for="aatencion" class="col-lg-3 control-label">A/Atencion</label>
 								 <div class="col-lg-8">
-										<input type="text" class="form-control" id="aatencion" name="aatencion" value="{{deliveryNote['aatencion']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['aatencion']">
 								 </div>
 							 </div>
 							 <div class="form-group">
 								 <label for="responsable" class="col-lg-3 control-label">Responsable</label>
 								 <div class="col-lg-8">
-										<input type="text" class="form-control" id="responsable" name="responsable" value="{{deliveryNote['responsable']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['responsable']">
 								 </div>
 							 </div>
 							 <div class="form-group">
 								 <label for="numpedido" class="col-lg-3 control-label">Núm. Pedido</label>
 								 <div class="col-lg-8">
-										<input type="text" class="form-control" id="numpedido" name="numpedido" value="{{deliveryNote['numpedido']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['numpedido']">
 								 </div>
 							 </div>
 							 <div class="form-group">
 								 <label for="mercancia" class="col-lg-3 control-label">Mercancia</label>
 								 <div class="col-lg-8">
-										<input type="text" class="form-control" id="mercancia" name="mercancia" value="{{deliveryNote['mercancia']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['mercancia']">
 								 </div>
 							 </div>
 							 <div class="form-group">
 								 <label for="estado" class="col-lg-3 control-label">Estado</label>
 								 <div class="col-lg-8">
-										<input type="text" class="form-control" id="estado" name="estado" value="{{deliveryNote['estado']}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['estado']">
 								 </div>
 							 </div>
 							 <div class="form-group">
 								 <label for="fecharecepcion" class="col-lg-3 control-label">Fecha Recepcion</label>
 								 <div class="col-lg-8">
-										<input type="text" class="form-control" id="fecharecepcion" name="fecharecepcion" value="{{deliveryNote['fecharecepcion'] | parseDate | date:'dd/MM/yyyy'}}">
+										 <input type="text" class="form-control" ng-model="deliveryNote['fecharecepcion']" dateformat>
 								 </div>
 							 </div>
+						</div>
+						<div class="text-right">
+							<button type="submit" form="deliveryNoteFrm" class="btn button btn-default" ng-class="{'btn-success': !deliveryNoteFrm.$pristine }" ng-disabled="deliveryNoteFrm.$pristine" ng-click="updateDeliveryNote(deliveryNote)"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
 						</div>
 					  </fieldset>
 					</div>
@@ -146,31 +149,31 @@
 				</form>
 		</div>
 		<p>
-			<button class="btn button btn-default" ng-click="newArticle()"><span class="glyphicon glyphicon-plus"></span> New Article</button>
+			<button class="btn button btn-default" ng-click="newArticle()"><span class="glyphicon glyphicon-plus"></span> Nuevo Artículo</button>
 		</p>
-		<div>
+		<div ng-show="keylist.length">
 			<table class="table table-condensed table-bordered table-striped">
 	      <thead>
 	          <tr>
-	           <th>Cód. Artículo</th>
-	           <th>Cantidad</th>
-	           <th>Código</th>
-						 <th>Cajas</th>
-						 <th>Descripción</th>
+	           <th width="150px">Cód. Artículo</th>
+	           <th width="20px">Cantidad</th>
+	           <th width="120px">Código</th>
+						 <th width="20px">Cajas</th>
+						 <th width="550px">Descripción</th>
 						 <th>Acciones</th>
 	          </tr>
 	      </thead>
 				<tbody>
 						<tr ng-repeat="key in keylist" ng-form name="articlesFrm">
-							<td width="150px"><input type="text" class="form-control" ng-model="deliveryNoteArticles[key]['codarticulo']"></td>
-							<td width="20px"><input type="text" class="form-control" ng-model="deliveryNoteArticles[key]['cantidad']"></td>
+							<td><input type="text" class="form-control" ng-model="deliveryNoteArticles[key]['codarticulo']"></td>
+							<td><input type="text" class="form-control" ng-model="deliveryNoteArticles[key]['cantidad']"></td>
 							<td><input type="text" class="form-control" ng-model="deliveryNoteArticles[key]['codigo']"></td>
-							<td width="20px"><input type="text" class="form-control" ng-model="deliveryNoteArticles[key]['cajas']"></td>
+							<td><input type="text" class="form-control" ng-model="deliveryNoteArticles[key]['cajas']"></td>
 							<td><input type="text" class="form-control" ng-model="deliveryNoteArticles[key]['descripcion']"></td>
-							<td>
-								<button class="btn button btn-default btn-xs" ng-class="{'btn-success': !myForm.$pristine }" ng-disabled="myForm.$pristine" ng-click="saveTodo(key , todos[key]);myForm.$setPristine(true)" ><span class="glyphicon glyphicon-ok"></span> Save</button>
+							<td class="table-buttons">
+								<button class="btn button btn-default btn-xs" ng-class="{'btn-success': !articlesFrm.$pristine }" ng-disabled="articlesFrm.$pristine" ng-click="saveArticle(deliveryNoteArticles[key]);myForm.$setPristine(true)" ><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
 								&nbsp;&nbsp;
-								<button class="btn button btn-default btn-xs" ng-click="deleteTodo(key)"><span class="glyphicon glyphicon-plus"></span> Delete</button>
+								<button class="btn button btn-default btn-xs" ng-click="deleteArticle(deliveryNoteArticles[key])"><span class="glyphicon glyphicon-trash"></span> Borrar</button>
 							</td>
 						</tr>
 				</tbody>

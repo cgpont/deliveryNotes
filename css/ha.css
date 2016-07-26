@@ -3,3 +3,8 @@
 [x-ng-click] {
     cursor: pointer;
 }
+
+.table tbody > tr > td.table-buttons{
+    vertical-align: middle;
+    text-align: center;
+}

@@ -15,7 +15,9 @@ component extends="framework.one" {
 		  { "$GET/deliverynotes" = "/main/list/" },
 		  { "$DELETE/deliverynote/:id/:year" = "/main/delete/id/:id/year/:year" },
 		  { "$POST/deliverynote/insert" = "/main/insert" },
-			{ "$POST/deliverynote/update" = "/main/update" }
+			{ "$POST/deliverynote/update" = "/main/update" },
+		  { "$DELETE/article/:id/:year/:cod" = "/main/delete/id/:id/year/:year/cod/:cod" },
+		  { "$POST/article/save" = "/main/saveArticle" }
 		]
 	};
 
