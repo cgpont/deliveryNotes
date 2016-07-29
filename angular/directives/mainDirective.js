@@ -19,13 +19,21 @@
 
   deliveryNotesApp.filter('parseDate', function() {
     return function(data) {
-      return new Date(data);
+      if ( data == null ){
+        return new Date();
+      } else {
+        return new Date(data);
+      }
     };
   });
 
   deliveryNotesApp.filter('parseAndFormatDate', function() {
     return function(data) {
-      var parsedDate = new Date(data);
+      if ( data == null ){
+        var parsedDate = new Date();
+      } else {
+        var parsedDate = new Date(data);
+      }
       var formattedDate = ("0"+parsedDate.getDate()).slice(-2) + "/" + ("0"+(parsedDate.getMonth()+1)).slice(-2) + "/" + parsedDate.getFullYear();
       return formattedDate;
     };
@@ -41,12 +49,36 @@
         });
         ngModelController.$formatters.push(function(data) {
           //convert data from model format to view format
-          var parsedDate = new Date(data);
+          if ( data == null ){
+            var parsedDate = new Date();
+          } else {
+            var parsedDate = new Date(data);
+          }
           var formattedDate = ("0"+parsedDate.getDate()).slice(-2) + "/" + ("0"+(parsedDate.getMonth()+1)).slice(-2) + "/" + parsedDate.getFullYear();
           return formattedDate; //converted
         });
       }
     }
   });
+
+  deliveryNotesApp.directive( "mwConfirmClick", [
+    function( ) {
+      return {
+        priority: -1,
+        restrict: 'A',
+        scope: { confirmFunction: "&mwConfirmClick" },
+        link: function( scope, element, attrs ){
+          element.bind( 'click', function( e ){
+            // message defaults to "Are you sure?"
+            var message = attrs.mwConfirmClickMsg ? attrs.mwConfirmClickMsg : "¿Seguro?";
+            // confirm() requires jQuery
+            if( confirm( message ) ) {
+              scope.confirmFunction();
+            }
+          });
+        }
+      }
+    }
+  ]);
 
 })();

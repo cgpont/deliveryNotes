@@ -21,9 +21,9 @@ component accessors = true {
 
 	}
 
-	public void function delete( struct rc ) {
+	public void function deleteDeliveryNote( struct rc ) {
 
-		var ret = deliveryNoteService.delete(arguments.rc.id, arguments.rc.year);
+		var ret = deliveryNoteService.deleteDeliveryNote(arguments.rc.id, arguments.rc.year);
 
 		framework.renderdata("JSON" , ret);
 
@@ -53,5 +53,20 @@ component accessors = true {
 
 	}
 
+	public void function saveArticle( struct rc ) {
+
+		var ret = deliveryNoteService.saveArticle( arguments.rc );
+
+		framework.renderdata("JSON" , ret);
+
+	}
+
+	public void function deleteArticle( struct rc ) {
+
+		var ret = deliveryNoteService.deleteArticle(arguments.rc.cod, arguments.rc.id, arguments.rc.year);
+
+		framework.renderdata("JSON" , ret);
+
+	}
 
 }

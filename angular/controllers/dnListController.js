@@ -12,8 +12,7 @@
     window.location.href = '/index.html#/deliverynote/' + $scope.selected.albaran + '/' + $scope.selected.anyo;
 	};
 
-	$scope.newDeliveryNote = function( ) {
-    $scope.selected = this.deliveryNotes[this.key];
+	$scope.newDeliveryNote = function( ) {    
     window.location.href = '/index.html#/deliverynote/new/';
 	};
 

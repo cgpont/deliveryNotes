@@ -1,29 +1,33 @@
-<div class="container">
-	<div class="page-header">
-	  <h1>Hasbro Albaranes</h1>
-	</div>
-
 	<div class="panel panel-default form-horizontal" >
 		<div class="panel-heading">
-			<h3 class="panel-title">Albarán {{deliveryNote['albaran']}} del {{deliveryNote['anyo']}}</h3>
+			<h3 ng-hide="newDeliveryNote" class="panel-title">Albarán {{deliveryNote['albaran']}} del {{deliveryNote['anyo']}}</h3>
+			<h3 ng-show="newDeliveryNote" class="panel-title">Nuevo Albarán</h3>
+		</div>
+		<div class="buttons-bar">
+			<div class="col-lg-4 text-left">
+				<button class="btn button btn-default" onclick="javascript:window.location.href = '/index.html#/'"><span class="glyphicon glyphicon-arrow-left"></span> Listado de Albaranes</button>
+			</div>
+			<div class="col-lg-4 text-center">
+				<button ng-hide="newDeliveryNote" class="btn button btn-default" onclick="javascript:window.print();"><span class="glyphicon glyphicon-print"></span> Imprimir Albarán</button>
+			</div>
+			<div class="col-lg-4 text-right">
+				<button ng-hide="newDeliveryNote" class="btn button btn-default" mw-confirm-click="deleteDeliveryNote(deliveryNote['albaran'], deliveryNote['anyo'])" mw-confirm-click-msg="¿Seguro que quieres borrar este albarán?"><span class="glyphicon glyphicon-trash"></span> Borrar Albarán</button>
+			</div>
 		</div>
 		<div class="panel-body">
-		<p>
-			<back-btn back="Volver" icon="glyphicon-arrow-left"></back-btn>
-		</p>
 		<div>
 				<form  id="deliveryNoteFrm" name="deliveryNoteFrm" class="form-horizontal" action="" method="post">
 					<div class="col-lg-12">
 			    <div class="well bs-component">
 						<fieldset>
 						<div class="col-lg-6">
-                 <div class="form-group">
+                 <div class="form-group" ng-hide="newDeliveryNote">
 									 <label for="albaran" class="col-lg-3 control-label">Albarán</label>
                    <div class="col-lg-8">
                       <input type="text" class="form-control" ng-model="deliveryNote['albaran']">
                    </div>
 								</div>
-								<div class="form-group">
+								<div class="form-group" ng-hide="newDeliveryNote">
 									<label for="anyo" class="col-lg-3 control-label">Año</label>
 									<div class="col-lg-8">
 										 <input type="text" class="form-control" ng-model="deliveryNote['anyo']">
@@ -74,7 +78,8 @@
 							<div class="form-group">
 								<label for="observaciones" class="col-lg-3 control-label">Observaciones</label>
 								<div class="col-lg-8">
-										 <textarea class="form-control" ng-model="deliveryNote['observaciones']"></textarea>
+										 <textarea ng-hide="newDeliveryNote" class="form-control" ng-model="deliveryNote['observaciones']"></textarea>
+										 <textarea ng-show="newDeliveryNote" class="form-control" ng-model="deliveryNote['observaciones']" rows="7"></textarea>
 								</div>
 							</div>
             </div>
@@ -141,14 +146,15 @@
 							 </div>
 						</div>
 						<div class="text-right">
-							<button type="submit" form="deliveryNoteFrm" class="btn button btn-default" ng-class="{'btn-success': !deliveryNoteFrm.$pristine }" ng-disabled="deliveryNoteFrm.$pristine" ng-click="updateDeliveryNote(deliveryNote)"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+							<button type="submit" ng-hide="newDeliveryNote" form="deliveryNoteFrm" class="btn button btn-default" ng-class="{'btn-success': !deliveryNoteFrm.$pristine }" ng-disabled="deliveryNoteFrm.$pristine" ng-click="updateDeliveryNote(deliveryNote); deliveryNoteFrm.$setPristine();"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+							<button type="submit" ng-show="newDeliveryNote" form="deliveryNoteFrm" class="btn button btn-default" ng-class="{'btn-success': !deliveryNoteFrm.$pristine }" ng-disabled="deliveryNoteFrm.$pristine" ng-click="insertDeliveryNote(deliveryNote); deliveryNoteFrm.$setPristine();"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
 						</div>
 					  </fieldset>
 					</div>
 					</div>
 				</form>
 		</div>
-		<p>
+		<p ng-hide="newDeliveryNote">
 			<button class="btn button btn-default" ng-click="newArticle()"><span class="glyphicon glyphicon-plus"></span> Nuevo Artículo</button>
 		</p>
 		<div ng-show="keylist.length">
@@ -158,8 +164,8 @@
 	           <th width="150px">Cód. Artículo</th>
 	           <th width="20px">Cantidad</th>
 	           <th width="120px">Código</th>
-						 <th width="20px">Cajas</th>
-						 <th width="550px">Descripción</th>
+						 <th width="70px">Cajas</th>
+						 <th width="500px">Descripción</th>
 						 <th>Acciones</th>
 	          </tr>
 	      </thead>
@@ -171,13 +177,12 @@
 							<td><input type="text" class="form-control" ng-model="deliveryNoteArticles[key]['cajas']"></td>
 							<td><input type="text" class="form-control" ng-model="deliveryNoteArticles[key]['descripcion']"></td>
 							<td class="table-buttons">
-								<button class="btn button btn-default btn-xs" ng-class="{'btn-success': !articlesFrm.$pristine }" ng-disabled="articlesFrm.$pristine" ng-click="saveArticle(deliveryNoteArticles[key]);myForm.$setPristine(true)" ><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+								<button class="btn button btn-default btn-xs" ng-class="{'btn-success': !articlesFrm.$pristine }" ng-disabled="articlesFrm.$pristine" ng-click="saveArticle(deliveryNote['albaran'], deliveryNote['anyo'], deliveryNoteArticles[key]); articlesFrm.$setPristine();" ><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
 								&nbsp;&nbsp;
-								<button class="btn button btn-default btn-xs" ng-click="deleteArticle(deliveryNoteArticles[key])"><span class="glyphicon glyphicon-trash"></span> Borrar</button>
+								<button class="btn button btn-default btn-xs" mw-confirm-click="deleteArticle(deliveryNoteArticles[key]['codarticulo'], deliveryNote['albaran'], deliveryNote['anyo'], key)" mw-confirm-click-msg="¿Seguro que quieres borrar este artículo?"><span class="glyphicon glyphicon-trash"></span> Borrar</button>
 							</td>
 						</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
-</div>

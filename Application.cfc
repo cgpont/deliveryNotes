@@ -13,10 +13,10 @@ component extends="framework.one" {
 		routes = [
 		  { "$GET/deliverynote/:id/:year" = "/main/get/id/:id/year/:year" },
 		  { "$GET/deliverynotes" = "/main/list/" },
-		  { "$DELETE/deliverynote/:id/:year" = "/main/delete/id/:id/year/:year" },
+		  { "$DELETE/deliverynote/:id/:year" = "/main/deleteDeliveryNote/id/:id/year/:year" },
 		  { "$POST/deliverynote/insert" = "/main/insert" },
 			{ "$POST/deliverynote/update" = "/main/update" },
-		  { "$DELETE/article/:id/:year/:cod" = "/main/delete/id/:id/year/:year/cod/:cod" },
+		  { "$DELETE/article/:cod/:id/:year" = "/main/deleteArticle/cod/:cod/id/:id/year/:year" },
 		  { "$POST/article/save" = "/main/saveArticle" }
 		]
 	};
