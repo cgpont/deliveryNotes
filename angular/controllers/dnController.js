@@ -30,7 +30,11 @@
 				'Content-Type': 'application/x-www-form-urlencoded'
 			} // set the headers so angular passing info as form data (not request payload)
 		}).success( function( responseData ){
-      window.location.href = '/index.html#/deliverynote/' + responseData['ALBARAN'] + '/' + responseData['ANYO'];
+      if (responseData.ERROR.length){
+        $scope.insertDnDbErrorMsg = responseData.ERROR;
+      } else {
+        window.location.href = '/index.html#/deliverynote/' + responseData['ALBARAN'] + '/' + responseData['ANYO'];
+      }
 		});
 	};
 
@@ -50,6 +54,7 @@
 				'Content-Type': 'application/x-www-form-urlencoded'
 			} // set the headers so angular passing info as form data (not request payload)
 		}).success( function( responseData ){
+      $scope.updateDnDbErrorMsg = responseData.ERROR;
 		});
 	};
 
@@ -82,6 +87,7 @@
 				'Content-Type': 'application/x-www-form-urlencoded'
 			} // set the headers so angular passing info as form data (not request payload)
 		}).success( function( responseData ){
+      $scope.articleDbErrorMsg = responseData.ERROR;
 		});
 	};
 

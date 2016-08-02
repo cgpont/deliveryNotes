@@ -15,6 +15,24 @@
 			</div>
 		</div>
 		<div class="panel-body">
+		<div ng-show="insertDnDbErrorMsg.length" class="alert alert-danger">
+				Ha habido un error al intentar crear un nuevo albarán.
+				<br><br>
+				El error reportado por la base de datos es:
+				<br><br>
+				<ul>
+					<li><strong>{{insertDnDbErrorMsg}}</strong></li>
+				</ul>
+		</div>
+		<div ng-show="updateDnDbErrorMsg.length" class="alert alert-danger">
+				Ha habido un error al intentar actualizar la información de este albarán.
+				<br><br>
+				El error reportado por la base de datos es:
+				<br><br>
+				<ul>
+					<li><strong>{{updateDnDbErrorMsg}}</strong></li>
+				</ul>
+		</div>
 		<div>
 				<form  id="deliveryNoteFrm" name="deliveryNoteFrm" class="form-horizontal" action="" method="post">
 					<div class="col-lg-12">
@@ -157,6 +175,15 @@
 		<p ng-hide="newDeliveryNote">
 			<button class="btn button btn-default" ng-click="newArticle()"><span class="glyphicon glyphicon-plus"></span> Nuevo Artículo</button>
 		</p>
+		<div ng-show="articleDbErrorMsg.length" class="alert alert-danger">
+				Ha habido un error al intentar guardar la información del artículo.
+				<br><br>
+				El error reportado por la base de datos es:
+				<br><br>
+				<ul>
+					<li><strong>{{articleErrorMsg}}</strong></li>
+				</ul>
+		</div>
 		<div ng-show="keylist.length">
 			<table class="table table-condensed table-bordered table-striped">
 	      <thead>
