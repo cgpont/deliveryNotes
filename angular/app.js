@@ -1,6 +1,7 @@
-var deliveryNotesApp = angular.module('deliveryNotesApp', ['ngRoute']);
+var deliveryNotesApp = angular.module('deliveryNotesApp', ['ngRoute','ngMessages']);
 
 deliveryNotesApp.config(function ($routeProvider) {
+  'use strict';
   $routeProvider
     .when('/', {
       controller: "dnListController",

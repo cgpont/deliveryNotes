@@ -1,4 +1,5 @@
 (function() {
+'use strict';
 
   deliveryNotesApp.controller( 'dnListController' , function ( $scope , $http  ) {
 
@@ -12,7 +13,7 @@
     window.location.href = '/index.html#/deliverynote/' + $scope.selected.albaran + '/' + $scope.selected.anyo;
 	};
 
-	$scope.newDeliveryNote = function( ) {    
+	$scope.newDeliveryNote = function( ) {
     window.location.href = '/index.html#/deliverynote/new/';
 	};
 

@@ -1,4 +1,5 @@
 (function() {
+'use strict';
 
   deliveryNotesApp.controller( 'dnController' , function ( $scope , $http, $location, $filter, $route ) {
 
@@ -77,18 +78,18 @@
 	};
 
   $scope.saveArticle = function( albaran, anyo, article ) {
-    $http({
-			method: 'POST',
-			url: 'index.cfm/article/save/',
-			data: "&codarticulo=" + article['codarticulo'] + "&albaran=" + albaran + "&anyo=" + anyo +
-            "&codigo=" + article['codigo'] + "&descripcion=" + article['descripcion'] +
-            "&cantidad=" + article['cantidad'] + "&cajas=" + article['cajas'],
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			} // set the headers so angular passing info as form data (not request payload)
-		}).success( function( responseData ){
-      $scope.articleDbErrorMsg = responseData.ERROR;
-		});
+      $http({
+  			method: 'POST',
+  			url: 'index.cfm/article/save/',
+  			data: "&codarticulo=" + article['codarticulo'] + "&albaran=" + albaran + "&anyo=" + anyo +
+              "&codigo=" + article['codigo'] + "&descripcion=" + article['descripcion'] +
+              "&cantidad=" + article['cantidad'] + "&cajas=" + article['cajas'],
+  			headers: {
+  				'Content-Type': 'application/x-www-form-urlencoded'
+  			} // set the headers so angular passing info as form data (not request payload)
+  		}).success( function( responseData ){
+        $scope.articleDbErrorMsg = responseData.ERROR;
+  		});
 	};
 
   $scope.deleteArticle = function( codarticulo, albaran, anyo, key ) {
