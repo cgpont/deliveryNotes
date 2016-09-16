@@ -1,6 +1,6 @@
 var deliveryNotesApp = angular.module('deliveryNotesApp', ['ngRoute','ngMessages']);
 
-deliveryNotesApp.config(function ($routeProvider) {
+deliveryNotesApp.config(function ($routeProvider, $httpProvider) {
   'use strict';
   $routeProvider
     .when('/', {
@@ -18,4 +18,16 @@ deliveryNotesApp.config(function ($routeProvider) {
     .otherwise({
       redirectTo: '/'
     });
+
+    /******* HTTP CACHING DISABLED BECAUSE IE PROBLEMS **********/
+    //initialize get if not there
+    if (!$httpProvider.defaults.headers.get) {
+        $httpProvider.defaults.headers.get = {};
+    }
+    //disable IE ajax request caching
+    $httpProvider.defaults.headers.get['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
+    // extra
+    $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
+    $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
+    /******* HTTP CACHING DISABLED BECAUSE IE PROBLEMS **********/
 });
