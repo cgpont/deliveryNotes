@@ -56,51 +56,63 @@
 								 <div class="col-lg-8">
 										 <input type="text" name="cliente" class="form-control" ng-model="deliveryNote['cliente']" ng-maxlength="50">
 								 </div>
-								 <div ng-messages="deliveryNoteFrm.cliente.$error">
-									 <div ng-message="maxlength" class="alert alert-danger">Este campo no puede tener más de 50 carácteres</div>
-								 </div>
+							</div>
+							<div ng-messages="deliveryNoteFrm.cliente.$error">
+								<div ng-message="maxlength" class="alert alert-danger">El campo "Cliente" no puede tener más de 50 carácteres</div>
 							</div>
 							<div class="form-group">
 								<label for="direccion" class="col-lg-3 control-label">Dirección</label>
 								<div class="col-lg-8">
-										 <input type="text" name="direccion" class="form-control" ng-model="deliveryNote['direccion']">
+										 <input type="text" name="direccion" class="form-control" ng-model="deliveryNote['direccion']" ng-maxlength="255">
 								</div>
-								<div ng-messages="deliveryNoteFrm.direccion.$error">
-									<div ng-message="maxlength" class="alert alert-danger">Este campo no puede tener más de 255 carácteres</div>
-								</div>
+							</div>
+							<div ng-messages="deliveryNoteFrm.direccion.$error">
+								<div ng-message="maxlength" class="alert alert-danger">El campo "Dirección" no puede tener más de 255 carácteres</div>
 							</div>
 							<div class="form-group">
 								<label for="cp" class="col-lg-3 control-label">CP</label>
-								<div class="col-lg-8">
+								<div class="col-lg-3">
 										 <input type="text" name="cp" class="form-control" ng-model="deliveryNote['cp']" ng-maxlength="5">
 								</div>
-								<div ng-messages="deliveryNoteFrm.cp.$error">
-									<div ng-message="maxlength" class="alert alert-danger">Este campo no puede tener más de 5 carácteres</div>
-								</div>
+							</div>
+							<div ng-messages="deliveryNoteFrm.cp.$error" ng-if="deliveryNoteFrm.cp.$dirty">
+								<div ng-message="maxlength" class="alert alert-danger">El campo "CP" no puede tener más de 5 carácteres</div>
 							</div>
 							<div class="form-group">
 								<label for="poblacion" class="col-lg-3 control-label">Población</label>
 								<div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['poblacion']">
+										 <input type="text" name="poblacion" class="form-control" ng-model="deliveryNote['poblacion']" ng-maxlength="50">
 								</div>
+							</div>
+							<div ng-messages="deliveryNoteFrm.poblacion.$error">
+								<div ng-message="maxlength" class="alert alert-danger">El campo "Población" no puede tener más de 50 carácteres</div>
 							</div>
 							<div class="form-group">
 								<label for="provincia" class="col-lg-3 control-label">Provincia</label>
 								<div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['provincia']">
+										 <input type="text" name="provincia" class="form-control" ng-model="deliveryNote['provincia']" ng-maxlength="50">
 								</div>
+							</div>
+							<div ng-messages="deliveryNoteFrm.provincia.$error">
+								<div ng-message="maxlength" class="alert alert-danger">El campo "Provincia" no puede tener más de 50 carácteres</div>
 							</div>
 							<div class="form-group">
 								<label for="agencia" class="col-lg-3 control-label">Agencia</label>
 								<div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['agencia']">
+										 <input type="text" name="agencia" class="form-control" ng-model="deliveryNote['agencia']" ng-maxlength="50">
 								</div>
+							</div>
+							<div ng-messages="deliveryNoteFrm.agencia.$error">
+								<div ng-message="maxlength" class="alert alert-danger">El campo "Agencia" no puede tener más de 50 carácteres</div>
 							</div>
 							<div class="form-group">
 								<label for="departamento" class="col-lg-3 control-label">Departamento</label>
 								<div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['departamento']">
+										 <input type="text" name="departamento" class="form-control" ng-model="deliveryNote['departamento']" ng-maxlength="50">
 								</div>
+							</div>
+							<div ng-messages="deliveryNoteFrm.departamento.$error">
+								<div ng-message="maxlength" class="alert alert-danger">El campo "Departamento" no puede tener más de 50 carácteres</div>
 							</div>
 							<div class="form-group">
 								<label for="observaciones" class="col-lg-3 control-label">Observaciones</label>
@@ -125,56 +137,84 @@
 							 </div>
 							 <div class="form-group">
 								 <label for="bultos" class="col-lg-3 control-label">Bultos</label>
-								 <div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['bultos']">
+								 <div class="col-lg-3">
+										 <input type="number" name="bultos" class="form-control" ng-model="deliveryNote['bultos']" min="0" max="32767">
 								 </div>
 							 </div>
+							 <div ng-messages="deliveryNoteFrm.bultos.$error">
+ 									<div ng-message="number" class="alert alert-danger">El campo "Bultos" debe ser numérico</div>
+									<div ng-message="min" class="alert alert-danger">El campo "Bultos" no puede ser menor de 0</div>
+									<div ng-message="max" class="alert alert-danger">El campo "Bultos" no puede ser mayor de 32.767</div>
+ 							 </div>
 							 <div class="form-group">
 								 <label for="pallets" class="col-lg-3 control-label">Pallets</label>
-								 <div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['pallets']">
+								 <div class="col-lg-3">
+										 <input type="number" name="pallets" class="form-control" ng-model="deliveryNote['pallets']" min="0" max="32767">
 								 </div>
 							 </div>
+							 <div ng-messages="deliveryNoteFrm.pallets.$error">
+ 									<div ng-message="number" class="alert alert-danger">El campo "Pallets" debe ser numérico</div>
+									<div ng-message="min" class="alert alert-danger">El campo "Pallets" no puede ser menor de 0</div>
+									<div ng-message="max" class="alert alert-danger">El campo "Pallets" no puede ser mayor de 32.767</div>
+ 							 </div>
 							 <div class="form-group">
 								 <label for="aatencion" class="col-lg-3 control-label">A/Atencion</label>
 								 <div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['aatencion']">
+										 <input type="text" name="aatencion" class="form-control" ng-model="deliveryNote['aatencion']" ng-maxlength="50">
 								 </div>
 							 </div>
+							 <div ng-messages="deliveryNoteFrm.aatencion.$error">
+ 									<div ng-message="maxlength" class="alert alert-danger">El campo "A/Atencion" no puede tener más de 50 carácteres</div>
+ 							 </div>
 							 <div class="form-group">
 								 <label for="responsable" class="col-lg-3 control-label">Responsable</label>
 								 <div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['responsable']">
+										 <input type="text" name="responsable" class="form-control" ng-model="deliveryNote['responsable']" ng-maxlength="50">
 								 </div>
 							 </div>
+							 <div ng-messages="deliveryNoteFrm.responsable.$error">
+ 							 		<div ng-message="maxlength" class="alert alert-danger">El campo "Responsable" no puede tener más de 50 carácteres</div>
+ 							 </div>
 							 <div class="form-group">
 								 <label for="numpedido" class="col-lg-3 control-label">Núm. Pedido</label>
 								 <div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['numpedido']">
+										 <input type="text" name="numpedido" class="form-control" ng-model="deliveryNote['numpedido']" ng-maxlength="20">
 								 </div>
 							 </div>
+							 <div ng-messages="deliveryNoteFrm.numpedido.$error">
+ 							 		<div ng-message="maxlength" class="alert alert-danger">El campo "Núm. Pedido" no puede tener más de 20 carácteres</div>
+ 							 </div>
 							 <div class="form-group">
 								 <label for="mercancia" class="col-lg-3 control-label">Mercancia</label>
 								 <div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['mercancia']">
+										 <input type="text" name="mercancia" class="form-control" ng-model="deliveryNote['mercancia']" ng-maxlength="50">
 								 </div>
 							 </div>
+							 <div ng-messages="deliveryNoteFrm.mercancia.$error">
+ 							 		<div ng-message="maxlength" class="alert alert-danger">El campo "Mercancia" no puede tener más de 50 carácteres</div>
+ 							 </div>
 							 <div class="form-group">
 								 <label for="estado" class="col-lg-3 control-label">Estado</label>
 								 <div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['estado']">
+										 <input type="text" name="estado" class="form-control" ng-model="deliveryNote['estado']" ng-maxlength="50">
 								 </div>
 							 </div>
+							 <div ng-messages="deliveryNoteFrm.estado.$error">
+ 							 		<div ng-message="maxlength" class="alert alert-danger">El campo "Estado" no puede tener más de 50 carácteres</div>
+ 							 </div>
 							 <div class="form-group">
-								 <label for="fecharecepcion" class="col-lg-3 control-label">Fecha Recepcion</label>
+								 <label for="fecharecepcion" class="col-lg-3 control-label">Fecha Recepción</label>
 								 <div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['fecharecepcion']" dateformat>
+										 <input type="text" name="fecharecepcion" class="form-control" ng-model="deliveryNote['fecharecepcion']" dateformat>
 								 </div>
 							 </div>
+							 <div ng-messages="deliveryNoteFrm.fecharecepcion.$error">
+	 							 <div ng-message="date" class="alert alert-danger">El campo "Fecha Recepción" tiene que ser una fecha válida</div>
+	 						</div>
 						</div>
 						<div class="text-right">
-							<button type="submit" ng-hide="newDeliveryNote" form="deliveryNoteFrm" class="btn button btn-default" ng-class="{'btn-success': !deliveryNoteFrm.$pristine }" ng-disabled="deliveryNoteFrm.$pristine" ng-click="updateDeliveryNote(deliveryNote); deliveryNoteFrm.$setPristine();"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
-							<button type="submit" ng-show="newDeliveryNote" form="deliveryNoteFrm" class="btn button btn-default" ng-class="{'btn-success': !deliveryNoteFrm.$pristine }" ng-disabled="deliveryNoteFrm.$pristine" ng-click="insertDeliveryNote(deliveryNote); deliveryNoteFrm.$setPristine();"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+							<button type="submit" ng-hide="newDeliveryNote" form="deliveryNoteFrm" class="btn button btn-default" ng-class="{'btn-success': !(deliveryNoteFrm.$pristine || deliveryNoteFrm.$invalid) }" ng-disabled="deliveryNoteFrm.$pristine || deliveryNoteFrm.$invalid" ng-click="updateDeliveryNote(deliveryNote); deliveryNoteFrm.$setPristine();"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+							<button type="submit" ng-show="newDeliveryNote" form="deliveryNoteFrm" class="btn button btn-default" ng-class="{'btn-success': !(deliveryNoteFrm.$pristine || deliveryNoteFrm.$invalid) }" ng-disabled="deliveryNoteFrm.$pristine || deliveryNoteFrm.$invalid" ng-click="insertDeliveryNote(deliveryNote); deliveryNoteFrm.$setPristine();"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
 						</div>
 					  </fieldset>
 					</div>
@@ -207,20 +247,50 @@
 	      </thead>
 				<tbody>
 						<tr ng-repeat="key in keylist" ng-form name="articlesFrm">
-							<td><input name="codarticulo" type="number" required min="0" max="2147483647" class="form-control" ng-model="deliveryNoteArticles[key]['codarticulo']"></td>
-							<div ng-messages="articlesFrm.codarticulo.$error" ng-if="articlesFrm.codarticulo.$dirty">
-							  	<div ng-message="required">Este campo es obligatorio</div>
-							</div>
-							<td><input type="number" min="0" max="32767" class="form-control" ng-model="deliveryNoteArticles[key]['cantidad']"></td>
-							<td><input name="codigo" type="text" ng-maxlength="20" class="form-control" ng-model="deliveryNoteArticles[key]['codigo']"></td>
-							<div ng-messages="articlesFrm[key].codigo.$error">
-								<div ng-message="maxlength" class="alert alert-danger">Este campo no puede tener más de 20 carácteres</div>
-							</div>
-							<td><input type="number" min="0" max="32767" class="form-control" ng-model="deliveryNoteArticles[key]['cajas']"></td>
-							<td><input name="descripcion" type="text" ng-maxlength="50" class="form-control" ng-model="deliveryNoteArticles[key]['descripcion']"></td>
-							<span class="error" ng-show="articlesFrm.descripcion.$error.maxlength">Too long!</span>
+							<td>
+									<input name="codarticulo" type="number" required min="0" max="2147483647" class="form-control" ng-model="deliveryNoteArticles[key]['codarticulo']">
+									<div ng-messages="articlesFrm.codarticulo.$error">
+										  <br>
+									  	<div ng-message="required" class="alert alert-danger">El campo "Cód. Artículo" es obligatorio</div>
+											<div ng-message="number" class="alert alert-danger">El campo "Cód. Artículo" debe ser numérico</div>
+											<div ng-message="min" class="alert alert-danger">El campo "Cód. Artículo" no puede ser menor de 0</div>
+	 									  <div ng-message="max" class="alert alert-danger">El campo "Cód. Artículo" no puede ser mayor de 2.147.483.647</div>
+									</div>
+							</td>
+							<td>
+									<input name="cantidad" type="number" min="0" max="32767" class="form-control" ng-model="deliveryNoteArticles[key]['cantidad']">
+									<div ng-messages="articlesFrm.cantidad.$error">
+										  <br>
+	  									<div ng-message="number" class="alert alert-danger">El campo "Cantidad" debe ser numérico</div>
+	 									  <div ng-message="min" class="alert alert-danger">El campo "Cantidad" no puede ser menor de 0</div>
+	 									  <div ng-message="max" class="alert alert-danger">El campo "Cantidad" no puede ser mayor de 32.767</div>
+	  							</div>
+							</td>
+							<td>
+									<input name="codigo" type="text" ng-maxlength="20" class="form-control" ng-model="deliveryNoteArticles[key]['codigo']">
+									<div ng-messages="articlesFrm.codigo.$error">
+										<br>
+										<div ng-message="maxlength" class="alert alert-danger">El campo "Código" no puede tener más de 20 carácteres</div>
+									</div>
+							</td>
+							<td>
+									<input type="number" name="cajas" min="0" max="32767" class="form-control" ng-model="deliveryNoteArticles[key]['cajas']">
+									<div ng-messages="articlesFrm.cajas.$error">
+										  <br>
+	  									<div ng-message="number" class="alert alert-danger">El campo "Cajas" debe ser numérico</div>
+	 									  <div ng-message="min" class="alert alert-danger">El campo "Cajas" no puede ser menor de 0</div>
+	 									  <div ng-message="max" class="alert alert-danger">El campo "Cajas" no puede ser mayor de 32.767</div>
+	  							</div>
+							</td>
+							<td>
+									<input name="descripcion" type="text" ng-maxlength="50" class="form-control" ng-model="deliveryNoteArticles[key]['descripcion']">
+									<div ng-messages="articlesFrm.descripcion.$error">
+										<br>
+										<div ng-message="maxlength" class="alert alert-danger">El campo "Descripción" no puede tener más de 50 carácteres</div>
+									</div>
+							</td>
 							<td class="table-buttons">
-								<button class="btn button btn-default btn-xs" ng-class="{'btn-success': !articlesFrm.$pristine }" ng-disabled="articlesFrm.$pristine" ng-click="saveArticle(deliveryNote['albaran'], deliveryNote['anyo'], deliveryNoteArticles[key]); articlesFrm.$setPristine();" ><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+								<button class="btn button btn-default btn-xs" ng-class="{'btn-success': !(articlesFrm.$pristine || articlesFrm.$invalid) }" ng-disabled="articlesFrm.$pristine || articlesFrm.$invalid" ng-click="saveArticle(deliveryNote['albaran'], deliveryNote['anyo'], deliveryNoteArticles[key]); articlesFrm.$setPristine();" ><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
 								&nbsp;&nbsp;
 								<button class="btn button btn-default btn-xs" mw-confirm-click="deleteArticle(deliveryNoteArticles[key]['codarticulo'], deliveryNote['albaran'], deliveryNote['anyo'], key)" mw-confirm-click-msg="¿Seguro que quieres borrar este artículo?"><span class="glyphicon glyphicon-trash"></span> Borrar</button>
 							</td>
