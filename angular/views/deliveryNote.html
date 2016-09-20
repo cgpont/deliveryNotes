@@ -125,14 +125,16 @@
 						<div class="col-lg-6">
 							 <div class="form-group">
 								 <label for="fechaalbaran" class="col-lg-3 control-label">Fecha Albarán</label>
-								 <div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['fechaalbaran']" dateformat>
+								 <div class="col-lg-4 input-group date form-datetime" data-date-format="d/m/yyyy">
+										 <input type="text" class="form-control" ng-model="deliveryNote['fechaalbaran']" placeholder="d/m/yyyy">
+										 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 								 </div>
 							 </div>
 							 <div class="form-group">
 								 <label for="fechasalida" class="col-lg-3 control-label">Fecha Salida</label>
-								 <div class="col-lg-8">
-										 <input type="text" class="form-control" ng-model="deliveryNote['fechasalida']" dateformat>
+								 <div class="col-lg-4 input-group date form-datetime" data-date-format="d/m/yyyy">
+										 <input type="text" class="form-control" ng-model="deliveryNote['fechasalida']" placeholder="d/m/yyyy">
+										 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 								 </div>
 							 </div>
 							 <div class="form-group">
@@ -204,8 +206,9 @@
  							 </div>
 							 <div class="form-group">
 								 <label for="fecharecepcion" class="col-lg-3 control-label">Fecha Recepción</label>
-								 <div class="col-lg-8">
-										 <input type="text" name="fecharecepcion" class="form-control" ng-model="deliveryNote['fecharecepcion']" dateformat>
+								 <div class="col-lg-4 input-group date form-datetime" data-date-format="d/m/yyyy">
+										 <input type="text" class="form-control" ng-model="deliveryNote['fecharecepcion']" placeholder="d/m/yyyy">
+										 <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 								 </div>
 							 </div>
 							 <div ng-messages="deliveryNoteFrm.fecharecepcion.$error">

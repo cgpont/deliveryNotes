@@ -10,6 +10,12 @@
     $scope.newDeliveryNote = 0;
     $http.get( 'index.cfm/' + $location.path() ).success( function( data ) {
   		$scope.deliveryNote = data[0][0];
+      var fAlbaran = new Date($scope.deliveryNote.fechaalbaran);
+      var fSalida = new Date($scope.deliveryNote.fechasalida);
+      var fRecepcion = new Date($scope.deliveryNote.fecharecepcion);
+      $scope.deliveryNote.fechaalbaran = fAlbaran.getDate() + "/" + parseInt(fAlbaran.getMonth()+1) + "/" + fAlbaran.getFullYear();
+      $scope.deliveryNote.fechasalida = fSalida.getDate() + "/" + parseInt(fSalida.getMonth()+1) + "/" + fSalida.getFullYear();
+      $scope.deliveryNote.fecharecepcion = fRecepcion.getDate() + "/" + parseInt(fRecepcion.getMonth()+1) + "/" + fRecepcion.getFullYear();
       $scope.deliveryNoteArticles = data[1];
       $scope.keylist = Object.keys($scope.deliveryNoteArticles).sort(function(a, b){return b-a});
   	} );
@@ -100,6 +106,18 @@
 			$scope.keylist.splice( $scope.keylist.indexOf(key) , 1 );
 		});
 	};
+
+  //Datepickers invacations
+  $(".form-datetime").datetimepicker({
+        language:  'es',
+        weekStart: 1,
+        todayBtn:  1,
+		    autoclose: 1,
+        todayHighlight: 1,
+    		startView: 2,
+    		minView: 2,
+    		forceParse: 0
+  });
 
 });
 
