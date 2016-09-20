@@ -12,3 +12,7 @@
 .buttons-bar{
   padding: 30px 0px 40px 0px;
 }
+
+.article-field-error-msg{
+  margin-top: 20px;
+}

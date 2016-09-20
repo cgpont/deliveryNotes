@@ -250,43 +250,38 @@
 							<td>
 									<input name="codarticulo" type="number" required min="0" max="2147483647" class="form-control" ng-model="deliveryNoteArticles[key]['codarticulo']">
 									<div ng-messages="articlesFrm.codarticulo.$error">
-										  <br>
-									  	<div ng-message="required" class="alert alert-danger">El campo "Cód. Artículo" es obligatorio</div>
-											<div ng-message="number" class="alert alert-danger">El campo "Cód. Artículo" debe ser numérico</div>
-											<div ng-message="min" class="alert alert-danger">El campo "Cód. Artículo" no puede ser menor de 0</div>
-	 									  <div ng-message="max" class="alert alert-danger">El campo "Cód. Artículo" no puede ser mayor de 2.147.483.647</div>
+									  	<div ng-message="required" class="alert alert-danger article-field-error-msg">El campo "Cód. Artículo" es obligatorio</div>
+											<div ng-message="number" class="alert alert-danger article-field-error-msg">El campo "Cód. Artículo" debe ser numérico</div>
+											<div ng-message="min" class="alert alert-danger article-field-error-msg">El campo "Cód. Artículo" no puede ser menor de 0</div>
+	 									  <div ng-message="max" class="alert alert-danger article-field-error-msg">El campo "Cód. Artículo" no puede ser mayor de 2.147.483.647</div>
 									</div>
 							</td>
 							<td>
 									<input name="cantidad" type="number" min="0" max="32767" class="form-control" ng-model="deliveryNoteArticles[key]['cantidad']">
 									<div ng-messages="articlesFrm.cantidad.$error">
-										  <br>
-	  									<div ng-message="number" class="alert alert-danger">El campo "Cantidad" debe ser numérico</div>
-	 									  <div ng-message="min" class="alert alert-danger">El campo "Cantidad" no puede ser menor de 0</div>
-	 									  <div ng-message="max" class="alert alert-danger">El campo "Cantidad" no puede ser mayor de 32.767</div>
+	  									<div ng-message="number" class="alert alert-danger article-field-error-msg">El campo "Cantidad" debe ser numérico</div>
+	 									  <div ng-message="min" class="alert alert-danger article-field-error-msg">El campo "Cantidad" no puede ser menor de 0</div>
+	 									  <div ng-message="max" class="alert alert-danger article-field-error-msg">El campo "Cantidad" no puede ser mayor de 32.767</div>
 	  							</div>
 							</td>
 							<td>
 									<input name="codigo" type="text" ng-maxlength="20" class="form-control" ng-model="deliveryNoteArticles[key]['codigo']">
 									<div ng-messages="articlesFrm.codigo.$error">
-										<br>
-										<div ng-message="maxlength" class="alert alert-danger">El campo "Código" no puede tener más de 20 carácteres</div>
+										<div ng-message="maxlength" class="alert alert-danger article-field-error-msg">El campo "Código" no puede tener más de 20 carácteres</div>
 									</div>
 							</td>
 							<td>
 									<input type="number" name="cajas" min="0" max="32767" class="form-control" ng-model="deliveryNoteArticles[key]['cajas']">
 									<div ng-messages="articlesFrm.cajas.$error">
-										  <br>
-	  									<div ng-message="number" class="alert alert-danger">El campo "Cajas" debe ser numérico</div>
-	 									  <div ng-message="min" class="alert alert-danger">El campo "Cajas" no puede ser menor de 0</div>
-	 									  <div ng-message="max" class="alert alert-danger">El campo "Cajas" no puede ser mayor de 32.767</div>
+	  									<div ng-message="number" class="alert alert-danger article-field-error-msg">El campo "Cajas" debe ser numérico</div>
+	 									  <div ng-message="min" class="alert alert-danger article-field-error-msg">El campo "Cajas" no puede ser menor de 0</div>
+	 									  <div ng-message="max" class="alert alert-danger article-field-error-msg">El campo "Cajas" no puede ser mayor de 32.767</div>
 	  							</div>
 							</td>
 							<td>
 									<input name="descripcion" type="text" ng-maxlength="50" class="form-control" ng-model="deliveryNoteArticles[key]['descripcion']">
 									<div ng-messages="articlesFrm.descripcion.$error">
-										<br>
-										<div ng-message="maxlength" class="alert alert-danger">El campo "Descripción" no puede tener más de 50 carácteres</div>
+										<div ng-message="maxlength" class="alert alert-danger article-field-error-msg">El campo "Descripción" no puede tener más de 50 carácteres</div>
 									</div>
 							</td>
 							<td class="table-buttons">
