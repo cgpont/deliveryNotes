@@ -107,7 +107,7 @@
 		});
 	};
 
-  //Datepickers invacations
+  //Datepickers invocations
   $(".form-datetime").datetimepicker({
         language:  'es',
         weekStart: 1,
