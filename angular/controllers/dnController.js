@@ -6,6 +6,21 @@
   if ($location.path() == '/deliverynote/new'){
     $scope.newDeliveryNote = 1;
     $scope.deliveryNote = [];
+    $scope.deliveryNote.cliente = "";
+    $scope.deliveryNote.direccion = "";
+    $scope.deliveryNote.cp = "";
+    $scope.deliveryNote.poblacion = "";
+    $scope.deliveryNote.provincia = "";
+    $scope.deliveryNote.agencia = "";
+    $scope.deliveryNote.departamento = "";
+    $scope.deliveryNote.bultos = 0;
+    $scope.deliveryNote.pallets = 0;
+    $scope.deliveryNote.aatencion = "";
+    $scope.deliveryNote.responsable = "";
+    $scope.deliveryNote.numpedido = "";
+    $scope.deliveryNote.observaciones = "";
+    $scope.deliveryNote.mercancia = "";
+    $scope.deliveryNote.estado = "";
   } else {
     $scope.newDeliveryNote = 0;
     $http.get( 'index.cfm/' + $location.path() ).success( function( data ) {
