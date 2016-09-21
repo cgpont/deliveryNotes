@@ -1,7 +1,7 @@
 (function() {
 'use strict';
 
-  deliveryNotesApp.controller( 'dnController' , function ( $scope , $http, $location, $filter, $route ) {
+  deliveryNotesApp.controller( 'dnController' , function ( $scope , $http, $location, $filter, $route, blockUI ) {
 
   if ($location.path() == '/deliverynote/new'){
     $scope.newDeliveryNote = 1;
@@ -60,7 +60,7 @@
 		});
 	};
 
-  $scope.updateDeliveryNote = function( deliveryNote ) {
+  $scope.updateDeliveryNote = function( deliveryNote ) {    
 		$http({
 			method: 'POST',
 			url: 'index.cfm/deliverynote/update',

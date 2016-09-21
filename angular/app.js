@@ -1,6 +1,6 @@
-var deliveryNotesApp = angular.module('deliveryNotesApp', ['ngRoute','ngMessages']);
+var deliveryNotesApp = angular.module('deliveryNotesApp', ['ngRoute','ngMessages','blockUI']);
 
-deliveryNotesApp.config(function ($routeProvider, $httpProvider) {
+deliveryNotesApp.config(function ($routeProvider, $httpProvider, blockUIConfig) {
   'use strict';
   $routeProvider
     .when('/', {
@@ -30,4 +30,8 @@ deliveryNotesApp.config(function ($routeProvider, $httpProvider) {
     $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
     $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
     /******* HTTP CACHING DISABLED BECAUSE IE PROBLEMS **********/
+
+    // Change the default overlay message
+    blockUIConfig.message = 'Procesando...';
+
 });
